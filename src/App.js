@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Button} from './components/Button'
-import {Input} from './components/Input'
-import {Clear} from './components/Clear'
+import {Button} from './components/Button';
+import {Input} from './components/Input';
+import {Clear} from './components/Clear';
+import * as math from 'mathjs';
 
 class App extends Component {
 
@@ -12,6 +13,10 @@ class App extends Component {
 
   handleUpdateInput = (val) => {
     this.setState({input: this.state.input + val})
+  }
+
+  handleEqual = (val) => {
+    this.setState({input: math.eval(this.state.input)})
   }
 
   render() {
@@ -29,7 +34,7 @@ class App extends Component {
             <Button handleClick={this.handleUpdateInput}>4</Button>
             <Button handleClick={this.handleUpdateInput}>5</Button>
             <Button handleClick={this.handleUpdateInput}>6</Button>
-            <Button handleClick={this.handleUpdateInput}>x</Button>
+            <Button handleClick={this.handleUpdateInput}>*</Button>
           </div>
           <div className="row">
             <Button handleClick={this.handleUpdateInput}>1</Button>
@@ -40,7 +45,7 @@ class App extends Component {
           <div className="row">
             <Button handleClick={this.handleUpdateInput}>.</Button>
             <Button handleClick={this.handleUpdateInput}>0</Button>
-            <Button handleClick={this.handleUpdateInput}>=</Button>
+            <Button handleClick={this.handleEqual}>=</Button>
             <Button handleClick={this.handleUpdateInput}>-</Button>
           </div>
           <div className="row">
