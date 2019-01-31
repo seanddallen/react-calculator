@@ -46,7 +46,7 @@ class App extends Component {
       || input[input.length-1] === "/"
       || input[input.length-1] === "*"
       || input[input.length-1] === "."){
-        return; 
+        return;
       }
     this.setState({input: math.eval(this.state.input)})
   }
